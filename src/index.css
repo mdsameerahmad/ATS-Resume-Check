@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-black/10 dark:border-white/10;
+  }
+
+  body {
+    @apply m-0 min-w-[320px] bg-canvas font-sans text-ink antialiased transition-colors duration-300 dark:bg-[#101713] dark:text-[#edf3ec];
+  }
+
+  ::selection {
+    @apply bg-lime text-ink;
+  }
+
+  button, a, textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 focus-visible:ring-offset-canvas dark:focus-visible:ring-lime dark:focus-visible:ring-offset-[#101713];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grid-texture {
+    background-image:
+      linear-gradient(rgba(23, 35, 31, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 35, 31, 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .dark .grid-texture {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  }
+}
